@@ -65,13 +65,13 @@ describe('User Data Tests', () => {
     });
   });
 
-  it('Should fetch users recent submissions returning 20 by default', async () => {
+  it('Should fetch users recent submissions returning 50 by default', async () => {
     const response = await request(app).get('/jambobjones/submission');
     ['count', 'submission'].forEach((key) => {
       assert(key in response.body);
     });
 
-    expect(response.body.count).toBeLessThanOrEqual(20);
+    expect(response.body.count).toBeLessThanOrEqual(50);
   });
   // Todo: Submission test with Limit Parameter
 
@@ -81,7 +81,7 @@ describe('User Data Tests', () => {
     ['count', 'submission'].forEach((key) => {
       assert(key in response.body);
     });
-    expect(response.body.count).toBeLessThanOrEqual(20);
+    expect(response.body.count).toBeLessThanOrEqual(50);
   });
 
   it('Should fetch Users Submission Calendar', async () => {
